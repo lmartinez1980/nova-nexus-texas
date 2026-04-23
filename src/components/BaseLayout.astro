@@ -14,7 +14,7 @@ interface Props {
 const {
   title = "Nova Nexus Texas — Marketing & Web Design in Arlington, TX",
   description = "Nova Nexus Texas builds AI-assisted websites and brands for local businesses. Honest pricing, Texas-built grit, real community insight. Arlington, TX.",
-  ogImage = "/logo.jpg",
+  ogImage = "/logo.png",
   canonical,
 } = Astro.props;
 
@@ -32,8 +32,8 @@ const fullOg = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
 
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
-    <link rel="apple-touch-icon" href="/logo.jpg" />
+    <link rel="icon" type="image/jpeg" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
