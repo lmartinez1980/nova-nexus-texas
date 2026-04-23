@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+/* ---- Nova Nexus Texas theme ---- */
+@theme {
+  --color-bg: #05070D;
+  --color-surface: #0B1020;
+  --color-elevated: #10131A;
+
+  --color-cyan: #25D6F7;
+  --color-royal: #1F6FB8;
+  --color-violet: #7B2CF2;
+  --color-amber: #FFB53A;
+  --color-magenta: #E83BAA;
+
+  --color-text: #F4F7FB;
+  --color-muted: #A7B1C2;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-2xl: 1rem;
+}
+
+/* ---- Base ---- */
+html {
+  background-color: #05070D;
+  color: #F4F7FB;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: transparent;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: rgba(37, 214, 247, 0.35);
+  color: #F4F7FB;
+}
+
+/* ---- Wordmark gradient ---- */
+.nnt-gradient-text {
+  background: linear-gradient(135deg, #25D6F7 0%, #7B2CF2 50%, #E83BAA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Amber-tinted variant for accents */
+.nnt-gradient-text-warm {
+  background: linear-gradient(135deg, #25D6F7 0%, #7B2CF2 45%, #E83BAA 75%, #FFB53A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Starfield (pure CSS, 3 layers) ---- */
+.nnt-starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(123, 44, 242, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(37, 214, 247, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(232, 59, 170, 0.05) 0%, transparent 70%),
+    #05070D;
+}
+
+.nnt-starfield::before,
+.nnt-starfield::after,
+.nnt-stars-3 {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+/* Layer 1 — small, fast drift */
+.nnt-starfield::before {
+  box-shadow:
+    120px 180px #fff, 340px 520px #fff, 760px 110px #b9ddff, 980px 640px #fff,
+    1250px 300px #fff, 1580px 820px #fff, 1820px 250px #b9ddff, 2100px 560px #fff,
+    200px 880px #fff, 620px 960px #fff, 880px 400px #b9ddff, 1400px 120px #fff,
+    1720px 600px #fff, 50px 400px #fff, 400px 60px #fff, 1060px 880px #fff,
+    1300px 720px #b9ddff, 1900px 80px #fff, 240px 300px #fff, 540px 180px #fff,
+    820px 720px #fff, 1120px 240px #b9ddff, 1440px 460px #fff, 1740px 350px #fff,
+    2000px 900px #fff, 60px 720px #b9ddff, 360px 820px #fff, 700px 300px #fff,
+    1020px 540px #fff, 1340px 900px #b9ddff, 1640px 150px #fff, 1960px 420px #fff,
+    140px 540px #fff, 460px 440px #fff, 780px 860px #b9ddff, 1180px 780px #fff,
+    1520px 660px #fff, 1860px 740px #b9ddff, 80px 200px #fff, 430px 700px #fff;
+  animation: nnt-drift 120s linear infinite;
+}
+
+/* Layer 2 — medium */
+.nnt-starfield::after {
+  width: 2px;
+  height: 2px;
+  box-shadow:
+    280px 60px #fff, 680px 340px #e6c0ff, 1080px 220px #fff, 1380px 780px #fff,
+    1680px 440px #fff, 180px 680px #fff, 480px 820px #cfe8ff, 900px 640px #fff,
+    1200px 120px #fff, 1500px 340px #e6c0ff, 1800px 880px #fff, 40px 920px #fff,
+    350px 140px #fff, 650px 580px #fff, 950px 900px #cfe8ff, 1250px 500px #fff,
+    1550px 140px #fff, 1850px 600px #e6c0ff, 220px 420px #fff, 520px 260px #fff,
+    820px 380px #fff, 1120px 820px #fff, 1420px 260px #cfe8ff, 1720px 720px #fff;
+  animation: nnt-drift 180s linear infinite;
+}
+
+/* Layer 3 — few bright sparks */
+.nnt-stars-3 {
+  width: 3px;
+  height: 3px;
+  box-shadow:
+    420px 200px #FFB53A, 1060px 460px #25D6F7, 1560px 240px #E83BAA,
+    300px 760px #25D6F7, 880px 820px #FFB53A, 1620px 700px #7B2CF2,
+    1880px 120px #25D6F7, 140px 340px #E83BAA, 720px 60px #FFB53A,
+    1340px 920px #25D6F7;
+  filter: blur(0.3px);
+  animation: nnt-drift 240s linear infinite, nnt-twinkle 4s ease-in-out infinite;
+}
+
+@keyframes nnt-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-600px, -300px, 0); }
+}
+
+@keyframes nnt-twinkle {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+/* Subtle reduced-motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .nnt-starfield::before,
+  .nnt-starfield::after,
+  .nnt-stars-3 {
+    animation: none;
+  }
+}
+
+/* ---- Buttons ---- */
+.nnt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: transform 200ms ease, box-shadow 250ms ease, background 250ms ease, border-color 250ms ease;
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.nnt-btn-primary {
+  color: #fff;
+  background-image: linear-gradient(135deg, #25D6F7 0%, #7B2CF2 50%, #E83BAA 100%);
+  box-shadow:
+    0 8px 30px -10px rgba(123, 44, 242, 0.55),
+    0 4px 12px -2px rgba(37, 214, 247, 0.25);
+}
+.nnt-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 12px 40px -8px rgba(232, 59, 170, 0.55),
+    0 6px 18px -4px rgba(37, 214, 247, 0.45);
+}
+
+.nnt-btn-secondary {
+  color: #F4F7FB;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+}
+.nnt-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(37, 214, 247, 0.5);
+  box-shadow: 0 0 30px -10px rgba(37, 214, 247, 0.4);
+}
+
+/* ---- Glass panel ---- */
+.nnt-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(16, 19, 26, 0.7) 0%, rgba(11, 16, 32, 0.55) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  backdrop-filter: blur(14px);
+  transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+  overflow: hidden;
+}
+.nnt-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(37, 214, 247, 0) 0%, rgba(37, 214, 247, 0) 50%, rgba(232, 59, 170, 0) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  transition: background 300ms ease;
+  pointer-events: none;
+}
+.nnt-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 60px -30px rgba(37, 214, 247, 0.4);
+}
+.nnt-card:hover::before {
+  background: linear-gradient(135deg, rgba(37, 214, 247, 0.5) 0%, rgba(123, 44, 242, 0.5) 50%, rgba(232, 59, 170, 0.5) 100%);
+}
+
+/* Nav */
+.nnt-nav {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(5, 7, 13, 0.65);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Radial hero glow */
+.nnt-hero-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(123, 44, 242, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 50% 60%, rgba(37, 214, 247, 0.18) 0%, transparent 55%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ring frame for logo */
+.nnt-logo-frame {
+  position: relative;
+  border-radius: 9999px;
+  padding: 3px;
+  background: linear-gradient(135deg, #25D6F7 0%, #7B2CF2 50%, #E83BAA 100%);
+  box-shadow: 0 0 80px -10px rgba(123, 44, 242, 0.55), 0 0 40px -5px rgba(37, 214, 247, 0.4);
+}
+.nnt-logo-frame img {
+  border-radius: 9999px;
+  background: #05070D;
+  display: block;
+}
+
+/* Utility */
+.nnt-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+
+/* FAQ details animation */
+details.nnt-faq summary {
+  list-style: none;
+  cursor: pointer;
+}
+details.nnt-faq summary::-webkit-details-marker { display: none; }
+details.nnt-faq[open] .nnt-faq-chev {
+  transform: rotate(180deg);
+}
+.nnt-faq-chev { transition: transform 200ms ease; }

@@ -1,0 +1,10 @@
+---
+interface Props {
+  as?: string;
+  class?: string;
+  warm?: boolean;
+}
+const { as: Tag = "span", class: className = "", warm = false } = Astro.props;
+const cls = `${warm ? "nnt-gradient-text-warm" : "nnt-gradient-text"} ${className}`.trim();
+---
+<Tag class={cls}><slot /></Tag>

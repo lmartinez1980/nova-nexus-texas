@@ -1,0 +1,223 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { services } from "../data/services";
+
+const previewServices = services.slice(0, 3);
+
+const accentGlow: Record<string, string> = {
+  cyan: "from-[color:var(--color-cyan)]/30 to-transparent",
+  violet: "from-[color:var(--color-violet)]/30 to-transparent",
+  magenta: "from-[color:var(--color-magenta)]/30 to-transparent",
+  amber: "from-[color:var(--color-amber)]/30 to-transparent",
+  royal: "from-[color:var(--color-royal)]/30 to-transparent",
+};
+
+const valueProps = [
+  {
+    title: "Honest pricing",
+    body: "No smoke. No mirrors. You see the number before you sign. Every time.",
+    icon: `<path d="M12 3v18"/><path d="M17 7H9.5a2.5 2.5 0 0 0 0 5h5a2.5 2.5 0 0 1 0 5H6"/>`,
+  },
+  {
+    title: "20 years of experience",
+    body: "Two decades building brands and shipping software. This isn't our first rodeo — it's our best one yet.",
+    icon: `<path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>`,
+  },
+  {
+    title: "Built for local business",
+    body: "Community-first. We live here. Your customers are our neighbors. We market like it.",
+    icon: `<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>`,
+  },
+];
+---
+<BaseLayout
+  title="Nova Nexus Texas — AI-Assisted Websites & Marketing in Arlington, TX"
+  description="Nova Nexus Texas helps local DFW businesses stand out. AI-assisted websites, branding, and local SEO with honest pricing and Texas-built grit."
+>
+  <!-- HERO -->
+  <section class="relative pt-16 md:pt-24 pb-24 md:pb-32 overflow-hidden">
+    <div class="nnt-hero-glow"></div>
+    <div class="relative max-w-6xl mx-auto px-5 md:px-8 text-center">
+      <!-- Pill -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)] backdrop-blur-md">
+        <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--color-amber)] shadow-[0_0_12px_#FFB53A]"></span>
+        Now Booking · Arlington, TX
+      </div>
+
+      <!-- Logo -->
+      <div class="mt-8 flex justify-center">
+        <div class="nnt-logo-frame h-[240px] w-[240px] md:h-[320px] md:w-[320px]">
+          <img src="/logo.jpg" alt="Nova Nexus Texas cosmic logo" class="h-full w-full object-cover" width="320" height="320" loading="eager" />
+        </div>
+      </div>
+
+      <h1 class="mt-10 text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.02] tracking-tight">
+        <span class="block text-white">Transform local businesses into</span>
+        <span class="block"><span class="nnt-gradient-text">standout brands.</span></span>
+      </h1>
+
+      <p class="mt-7 mx-auto max-w-2xl text-lg md:text-xl text-[color:var(--color-muted)] leading-relaxed">
+        Confidence. Clarity. Texas-built grit. Nova Nexus Texas builds AI-assisted websites and smart local marketing for the businesses that make their neighborhoods work.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/contact" variant="primary">
+          Book Free 30-min Discovery
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </Button>
+        <Button href="/services" variant="secondary">See Services</Button>
+      </div>
+
+      <p class="mt-6 text-xs uppercase tracking-[0.2em] text-[color:var(--color-muted)]">
+        Built with AI · Guided by experience · Rooted in community
+      </p>
+    </div>
+  </section>
+
+  <!-- VALUE PROP TRIO -->
+  <section class="relative py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-3 gap-6">
+        {valueProps.map((v) => (
+          <Card>
+            <div class="h-11 w-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[color:var(--color-cyan)]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" set:html={v.icon}></svg>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">{v.title}</h3>
+            <p class="mt-3 text-[color:var(--color-muted)] leading-relaxed">{v.body}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="relative py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <SectionHeading
+        eyebrow="What we do"
+        title="Marketing that actually works for Main Street."
+        subtitle="Websites, branding, and local SEO built to make phones ring — not just win design awards."
+      />
+
+      <div class="grid md:grid-cols-3 gap-6 mt-14">
+        {previewServices.map((s) => (
+          <Card class="group">
+            <div class={`h-12 w-12 rounded-xl border border-white/10 bg-gradient-to-br ${accentGlow[s.accent]} flex items-center justify-center text-white`}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" set:html={s.iconSvg}></svg>
+            </div>
+            <h3 class="mt-5 text-xl font-semibold text-white">{s.title}</h3>
+            <p class="mt-1 text-sm text-[color:var(--color-cyan)]">{s.tagline}</p>
+            <p class="mt-3 text-[color:var(--color-muted)] leading-relaxed">{s.description}</p>
+          </Card>
+        ))}
+      </div>
+
+      <div class="mt-10 flex justify-center">
+        <Button href="/services" variant="secondary">Explore all services →</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US / AI-ASSISTED -->
+  <section class="relative py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <SectionHeading
+            eyebrow="The Nova Nexus difference"
+            title="Built with AI. Guided by experience."
+            subtitle="AI isn't the gimmick. It's the unfair advantage. We use it to move fast on the busy work so we can spend real time on the things that matter — your story, your customers, your community."
+            align="left"
+          />
+          <ul class="mt-8 space-y-4 text-[color:var(--color-text)]">
+            <li class="flex gap-3">
+              <span class="mt-1 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-cyan)]/20 text-[color:var(--color-cyan)]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span><span class="text-white font-semibold">Faster builds.</span> <span class="text-[color:var(--color-muted)]">We ship websites in weeks, not months — without cutting corners on polish.</span></span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-violet)]/20 text-[color:var(--color-violet)]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span><span class="text-white font-semibold">Sharper content.</span> <span class="text-[color:var(--color-muted)]">AI drafts. A human finishes it. You get copy that reads like you wrote it — only better.</span></span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-magenta)]/20 text-[color:var(--color-magenta)]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span><span class="text-white font-semibold">Lower cost.</span> <span class="text-[color:var(--color-muted)]">Agency-quality work at small-business prices. No bloated retainers.</span></span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-amber)]/20 text-[color:var(--color-amber)]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span><span class="text-white font-semibold">Real accountability.</span> <span class="text-[color:var(--color-muted)]">One founder. One phone number. You call, Lupe answers.</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="relative">
+          <Card class="relative !p-8 md:!p-10">
+            <div class="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-gradient-to-br from-[color:var(--color-cyan)]/40 to-[color:var(--color-magenta)]/30 blur-2xl"></div>
+            <p class="text-xs uppercase tracking-[0.2em] text-[color:var(--color-muted)]">From the founder</p>
+            <blockquote class="mt-4 text-xl md:text-2xl text-white leading-snug font-medium">
+              “I spent twenty years helping big companies move fast. Nova Nexus is how I bring that same firepower to the shop around the corner — without the agency markup.”
+            </blockquote>
+            <div class="mt-6 flex items-center gap-3">
+              <span class="relative inline-block h-10 w-10 rounded-full overflow-hidden ring-1 ring-white/10">
+                <img src="/logo.jpg" alt="Lupe Martinez" class="h-full w-full object-cover" width="40" height="40" />
+              </span>
+              <div>
+                <p class="text-white font-semibold leading-tight">Lupe Martinez</p>
+                <p class="text-sm text-[color:var(--color-muted)]">Founder · Arlington, TX</p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING TEASER -->
+  <section class="relative py-20 md:py-28">
+    <div class="max-w-5xl mx-auto px-5 md:px-8">
+      <Card class="relative overflow-hidden !p-10 md:!p-14 text-center">
+        <div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-cyan)]/10 via-transparent to-[color:var(--color-magenta)]/10 pointer-events-none"></div>
+        <div class="relative">
+          <p class="text-xs uppercase tracking-[0.2em] text-[color:var(--color-muted)]">Pricing</p>
+          <h2 class="mt-4 text-4xl md:text-5xl font-bold text-white leading-tight">
+            Websites from <span class="nnt-gradient-text-warm">$600</span>.
+          </h2>
+          <p class="mt-5 max-w-2xl mx-auto text-lg text-[color:var(--color-muted)]">
+            Three clear tiers. Everything you need at each one. No surprise line items. No hidden fees. Ever.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button href="/pricing" variant="primary">See Pricing</Button>
+            <Button href="/contact" variant="secondary">Talk to Lupe</Button>
+          </div>
+        </div>
+      </Card>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="relative py-24 md:py-32">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 text-center">
+      <h2 class="text-4xl md:text-6xl font-bold leading-tight text-white">
+        Let's build <span class="nnt-gradient-text">something worth finding.</span>
+      </h2>
+      <p class="mt-6 text-lg md:text-xl text-[color:var(--color-muted)]">
+        Free 30-minute discovery call. No pressure, no commitment — just a real conversation about your business.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/contact" variant="primary">Book Free Discovery</Button>
+        <Button href="mailto:lupe@novanexustexas.com" variant="secondary">Email Lupe</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

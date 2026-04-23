@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+const teasers = [
+  { name: "Local Restaurant Refresh", category: "Web Design · Branding", gradient: "from-[#25D6F7]/40 via-[#7B2CF2]/30 to-[#E83BAA]/30" },
+  { name: "Roofing Company Rebuild", category: "Web Design · Local SEO", gradient: "from-[#FFB53A]/40 via-[#E83BAA]/25 to-[#7B2CF2]/30" },
+  { name: "Family Dental Brand Refresh", category: "Branding · Content", gradient: "from-[#7B2CF2]/40 via-[#25D6F7]/30 to-[#1F6FB8]/40" },
+  { name: "Boutique E-commerce Launch", category: "Web Design · Strategy", gradient: "from-[#E83BAA]/40 via-[#FFB53A]/25 to-[#25D6F7]/30" },
+  { name: "Nonprofit Web Presence", category: "Web Design · Community", gradient: "from-[#25D6F7]/40 via-[#1F6FB8]/30 to-[#7B2CF2]/30" },
+  { name: "Landscaping Local Launch", category: "Local SEO · AI Content", gradient: "from-[#FFB53A]/40 via-[#25D6F7]/25 to-[#E83BAA]/30" },
+];
+---
+<BaseLayout
+  title="Work & Wins — Nova Nexus Texas Portfolio"
+  description="A preview of work in progress at Nova Nexus Texas. Websites, brands, and marketing projects launching soon. Your project could be featured here next."
+>
+  <!-- HERO -->
+  <section class="relative pt-20 md:pt-28 pb-12 md:pb-16">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 text-center">
+      <SectionHeading
+        eyebrow="Work & Wins"
+        title="Fresh out the gate. Stay tuned."
+        subtitle="Nova Nexus Texas is new — but the founder isn't. We're just getting started. Your project could be the one we feature here next."
+      />
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section class="relative py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {teasers.map((t) => (
+          <div class="nnt-card group relative overflow-hidden aspect-[4/3]">
+            <div class={`absolute inset-0 bg-gradient-to-br ${t.gradient} opacity-80 transition group-hover:opacity-100`}></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.08),transparent_60%)]"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+            <!-- coming soon badge -->
+            <div class="absolute top-4 right-4 z-10">
+              <span class="inline-flex items-center gap-2 rounded-full bg-black/50 border border-white/10 backdrop-blur-md px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+                <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--color-cyan)] shadow-[0_0_8px_#25D6F7]"></span>
+                Coming soon
+              </span>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+              <p class="text-xs uppercase tracking-[0.15em] text-white/70">{t.category}</p>
+              <h3 class="mt-2 text-xl md:text-2xl font-semibold text-white leading-tight">{t.name}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Yours next -->
+  <section class="relative py-20 md:py-28">
+    <div class="max-w-5xl mx-auto px-5 md:px-8">
+      <Card class="relative overflow-hidden !p-10 md:!p-14 text-center">
+        <div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-cyan)]/10 via-transparent to-[color:var(--color-amber)]/10 pointer-events-none"></div>
+        <div class="relative">
+          <p class="text-xs uppercase tracking-[0.2em] text-[color:var(--color-muted)]">Your turn</p>
+          <h2 class="mt-4 text-4xl md:text-5xl font-bold text-white leading-tight">
+            Want to be <span class="nnt-gradient-text">the first one on this page?</span>
+          </h2>
+          <p class="mt-6 max-w-2xl mx-auto text-lg text-[color:var(--color-muted)]">
+            Early clients get extra care, extra attention, and extra love. We'll go above and beyond — because your win is our launch story.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+            <Button href="/contact" variant="primary">Be Our Next Feature</Button>
+            <Button href="/services" variant="secondary">See Services</Button>
+          </div>
+        </div>
+      </Card>
+    </div>
+  </section>
+</BaseLayout>

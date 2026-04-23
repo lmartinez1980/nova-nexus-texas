@@ -1,0 +1,88 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/gallery", label: "Work" },
+  { href: "/contact", label: "Contact" },
+];
+const isActive = (href: string) => currentPath === href || (href !== "/" && currentPath.startsWith(href));
+---
+<header class="nnt-nav sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <a href="/" class="flex items-center gap-3 group" aria-label="Nova Nexus Texas — Home">
+        <span class="relative inline-block h-9 w-9 md:h-10 md:w-10 rounded-full overflow-hidden ring-1 ring-white/10 group-hover:ring-[color:var(--color-cyan)]/60 transition">
+          <img src="/logo.jpg" alt="Nova Nexus Texas logo" class="h-full w-full object-cover" width="40" height="40" />
+        </span>
+        <span class="font-display font-bold text-lg md:text-xl tracking-tight">
+          <span class="nnt-gradient-text">Nova Nexus</span>
+          <span class="text-white/80">Texas</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1">
+        {links.map((l) => (
+          <a
+            href={l.href}
+            class={`px-4 py-2 text-sm font-medium rounded-full transition ${
+              isActive(l.href)
+                ? "text-white bg-white/8"
+                : "text-[color:var(--color-muted)] hover:text-white hover:bg-white/5"
+            }`}
+          >
+            {l.label}
+          </a>
+        ))}
+        <a href="/contact" class="nnt-btn nnt-btn-primary ml-3 !py-2 !px-5 text-sm">
+          Book a Call
+        </a>
+      </nav>
+
+      <button
+        id="nnt-menu-btn"
+        class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full border border-white/10 bg-white/5"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="nnt-mobile-menu"
+      >
+        <svg id="nnt-menu-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        <svg id="nnt-menu-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 hidden"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="nnt-mobile-menu" class="md:hidden hidden border-t border-white/5 bg-[color:var(--color-bg)]/95 backdrop-blur-xl">
+    <div class="px-5 py-4 flex flex-col gap-1">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class={`px-4 py-3 rounded-xl text-base ${
+            isActive(l.href)
+              ? "text-white bg-white/8"
+              : "text-[color:var(--color-muted)] hover:text-white hover:bg-white/5"
+          }`}
+        >
+          {l.label}
+        </a>
+      ))}
+      <a href="/contact" class="nnt-btn nnt-btn-primary mt-3 w-full">Book a Call</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("nnt-menu-btn");
+  const menu = document.getElementById("nnt-mobile-menu");
+  const openIcon = document.getElementById("nnt-menu-open");
+  const closeIcon = document.getElementById("nnt-menu-close");
+  btn?.addEventListener("click", () => {
+    const expanded = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!expanded));
+    menu?.classList.toggle("hidden");
+    openIcon?.classList.toggle("hidden");
+    closeIcon?.classList.toggle("hidden");
+  });
+</script>

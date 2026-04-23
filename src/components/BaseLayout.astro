@@ -1,0 +1,93 @@
+---
+import "../styles/global.css";
+import Nav from "./Nav.astro";
+import Footer from "./Footer.astro";
+import Starfield from "./Starfield.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const {
+  title = "Nova Nexus Texas — Marketing & Web Design in Arlington, TX",
+  description = "Nova Nexus Texas builds AI-assisted websites and brands for local businesses. Honest pricing, Texas-built grit, real community insight. Arlington, TX.",
+  ogImage = "/logo.jpg",
+  canonical,
+} = Astro.props;
+
+const siteUrl = "https://novanexustexas.com";
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+const fullOg = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#05070D" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    <link rel="apple-touch-icon" href="/logo.jpg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nova Nexus Texas" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={fullOg} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOg} />
+
+    <!-- Keywords / locality -->
+    <meta name="keywords" content="marketing agency Arlington TX, web design Arlington, small business marketing DFW, AI website builder, branding, local SEO, Nova Nexus Texas" />
+    <meta name="author" content="Nova Nexus Texas" />
+    <meta name="geo.region" content="US-TX" />
+    <meta name="geo.placename" content="Arlington, Texas" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Nova Nexus Texas",
+      image: fullOg,
+      url: siteUrl,
+      email: "lupe@novanexustexas.com",
+      areaServed: "Dallas–Fort Worth Metroplex",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Arlington",
+        addressRegion: "TX",
+        addressCountry: "US",
+      },
+      description,
+      priceRange: "$$",
+    })}></script>
+  </head>
+  <body class="bg-[color:var(--color-bg)] text-[color:var(--color-text)] antialiased overflow-x-hidden">
+    <Starfield />
+    <Nav />
+    <main class="relative">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

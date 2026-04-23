@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { services } from "../data/services";
+
+const accentGlow: Record<string, string> = {
+  cyan: "from-[color:var(--color-cyan)]/30 to-transparent",
+  violet: "from-[color:var(--color-violet)]/30 to-transparent",
+  magenta: "from-[color:var(--color-magenta)]/30 to-transparent",
+  amber: "from-[color:var(--color-amber)]/30 to-transparent",
+  royal: "from-[color:var(--color-royal)]/30 to-transparent",
+};
+
+const accentText: Record<string, string> = {
+  cyan: "text-[color:var(--color-cyan)]",
+  violet: "text-[color:var(--color-violet)]",
+  magenta: "text-[color:var(--color-magenta)]",
+  amber: "text-[color:var(--color-amber)]",
+  royal: "text-[color:var(--color-cyan)]",
+};
+
+const process = [
+  { step: "01", title: "Discovery", body: "Free 30-minute call. We learn about your business, your customers, and what good looks like for you." },
+  { step: "02", title: "Blueprint", body: "A written plan with scope, timeline, and a flat price. No mystery line items." },
+  { step: "03", title: "Build", body: "We work fast using AI as the assistant — humans make every judgment call. You see drafts early." },
+  { step: "04", title: "Launch & support", body: "We ship it, train you on it, and stick around. 30 to 90 days of support included on every tier." },
+];
+---
+<BaseLayout
+  title="Services — Web Design, Branding, SEO & AI Marketing · Nova Nexus Texas"
+  description="Web design, branding, local SEO, AI-assisted content, and community marketing for Arlington and DFW businesses. Clear scope. Honest pricing."
+>
+  <!-- HERO -->
+  <section class="relative pt-20 md:pt-28 pb-12 md:pb-16">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 text-center">
+      <SectionHeading
+        eyebrow="Services"
+        title="Everything a local business needs to show up."
+        subtitle="Websites, brands, visibility, content. One team, one number, one flat price."
+      />
+    </div>
+  </section>
+
+  <!-- SERVICE GRID -->
+  <section class="relative py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-2 gap-6">
+        {services.map((s) => (
+          <Card class="group">
+            <div class="flex items-start gap-5">
+              <div class={`h-14 w-14 flex-shrink-0 rounded-2xl border border-white/10 bg-gradient-to-br ${accentGlow[s.accent]} flex items-center justify-center text-white`}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7" set:html={s.iconSvg}></svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl md:text-2xl font-semibold text-white leading-tight">{s.title}</h3>
+                <p class={`mt-1 text-sm ${accentText[s.accent]}`}>{s.tagline}</p>
+              </div>
+            </div>
+            <p class="mt-5 text-[color:var(--color-muted)] leading-relaxed">{s.description}</p>
+            <ul class="mt-6 space-y-2.5">
+              {s.bullets.map((b) => (
+                <li class="flex items-start gap-3 text-sm">
+                  <span class="mt-[2px] inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 text-[color:var(--color-cyan)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="h-2.5 w-2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span class="text-[color:var(--color-text)]">{b}</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="relative py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <SectionHeading
+        eyebrow="How we work"
+        title="Four steps. No mystery."
+      />
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+        {process.map((p) => (
+          <Card>
+            <p class="text-4xl font-bold nnt-gradient-text-warm leading-none">{p.step}</p>
+            <h3 class="mt-5 text-lg font-semibold text-white">{p.title}</h3>
+            <p class="mt-2 text-[color:var(--color-muted)] leading-relaxed text-sm">{p.body}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative py-20 md:py-28">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white">Not sure where to start?</h2>
+      <p class="mt-5 text-lg text-[color:var(--color-muted)]">
+        That's what the discovery call is for. Thirty minutes, on the house, and you walk away with a plan whether you hire us or not.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+        <Button href="/contact" variant="primary">Book Free Discovery</Button>
+        <Button href="/pricing" variant="secondary">See Pricing</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,43 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  align?: "left" | "center";
+  gradientWord?: string; // word in the title to apply gradient to
+}
+const {
+  eyebrow,
+  title,
+  subtitle,
+  align = "center",
+  gradientWord,
+} = Astro.props;
+
+const alignCls =
+  align === "center"
+    ? "text-center mx-auto"
+    : "text-left";
+
+let titleHtml = title;
+if (gradientWord && title.includes(gradientWord)) {
+  titleHtml = title.replace(
+    gradientWord,
+    `<span class="nnt-gradient-text">${gradientWord}</span>`
+  );
+}
+---
+<div class={`max-w-3xl ${alignCls}`}>
+  {eyebrow && (
+    <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.15em] text-[color:var(--color-muted)] backdrop-blur-md mb-5">
+      <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--color-cyan)] shadow-[0_0_10px_#25D6F7]"></span>
+      {eyebrow}
+    </div>
+  )}
+  <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] text-white" set:html={titleHtml} />
+  {subtitle && (
+    <p class="mt-5 text-lg md:text-xl text-[color:var(--color-muted)] leading-relaxed">
+      {subtitle}
+    </p>
+  )}
+</div>
