@@ -20,6 +20,7 @@ const tiers = [
       "30-day post-launch support",
     ],
     cta: "Start with Essentials",
+    checkoutUrl: "https://buy.stripe.com/28E3cogh25kh0997JNd7q00",
     featured: false,
   },
   {
@@ -38,6 +39,7 @@ const tiers = [
       "60-day post-launch support",
     ],
     cta: "Choose Community Focus",
+    checkoutUrl: "https://buy.stripe.com/dRm6oAaWIfYVf43ggjd7q01",
     featured: true,
   },
   {
@@ -56,6 +58,7 @@ const tiers = [
       "90-day post-launch support",
     ],
     cta: "Go Ambassador",
+    checkoutUrl: "https://buy.stripe.com/14AfZa3ug4gdcVV0hld7q02",
     featured: false,
   },
 ];
@@ -143,10 +146,13 @@ const faqs = [
                   ))}
                 </ul>
 
-                <div class="mt-8">
-                  <Button href="/contact" variant={t.featured ? "primary" : "secondary"} class="w-full">
+                <div class="mt-8 space-y-3">
+                  <Button href={t.checkoutUrl} variant={t.featured ? "primary" : "secondary"} class="w-full">
                     {t.cta}
                   </Button>
+                  <a href="/contact" class="block text-center text-xs text-[color:var(--color-muted)] hover:text-white transition">
+                    or talk first → book discovery
+                  </a>
                 </div>
               </div>
             </Card>
@@ -154,9 +160,15 @@ const faqs = [
         ))}
       </div>
 
-      <p class="mt-10 text-center text-sm text-[color:var(--color-muted)]">
-        Prices in USD. One-time project fees. No retainers, no subscriptions, no surprise bills.
-      </p>
+      <div class="mt-10 flex flex-col items-center gap-4">
+        <div class="inline-flex items-center gap-2 text-sm text-[color:var(--color-muted)]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-[color:var(--color-cyan)]"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Secure checkout powered by <strong class="text-white font-semibold">Stripe</strong></span>
+        </div>
+        <p class="text-center text-sm text-[color:var(--color-muted)] max-w-xl">
+          Prices in USD. One-time project fees. No retainers, no subscriptions, no surprise bills. Cards, Apple Pay, Google Pay, and ACH all accepted.
+        </p>
+      </div>
     </div>
   </section>
 

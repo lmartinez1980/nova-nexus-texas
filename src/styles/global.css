@@ -276,3 +276,25 @@ details.nnt-faq[open] .nnt-faq-chev {
   transform: rotate(180deg);
 }
 .nnt-faq-chev { transition: transform 200ms ease; }
+
+/* ----- Dark-readable <select> dropdown ----- */
+/* The OS draws native <option> menus and often inherits light backgrounds.
+   Force readable contrast everywhere (Chrome, Safari iOS/macOS, Firefox). */
+select.nnt-select option,
+select.nnt-select optgroup {
+  background-color: #0a0e1a;
+  color: #ffffff;
+  padding: 10px 12px;
+}
+select.nnt-select option:checked,
+select.nnt-select option:hover {
+  background-color: #25D6F7;
+  color: #05070D;
+}
+/* Fallback when the OS forces a light menu background */
+@media (prefers-color-scheme: light) {
+  select.nnt-select option {
+    background-color: #ffffff;
+    color: #0a0e1a;
+  }
+}

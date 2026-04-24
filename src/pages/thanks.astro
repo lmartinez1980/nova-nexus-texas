@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+---
+<BaseLayout
+  title="Message received — Nova Nexus Texas"
+  description="Thanks for reaching out. We'll be in touch shortly."
+>
+  <section class="relative pt-28 md:pt-36 pb-20">
+    <div class="max-w-2xl mx-auto px-5 md:px-8">
+      <Card class="!p-10 md:!p-14 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-cyan)]/10 via-transparent to-[color:var(--color-magenta)]/10 pointer-events-none"></div>
+
+        <div class="relative">
+          <!-- Checkmark icon -->
+          <div class="mx-auto h-20 w-20 rounded-full bg-gradient-to-br from-[color:var(--color-cyan)]/20 via-[color:var(--color-violet)]/20 to-[color:var(--color-magenta)]/20 flex items-center justify-center border border-[color:var(--color-cyan)]/40 shadow-[0_0_40px_-10px_rgba(37,214,247,0.5)]">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-[color:var(--color-cyan)]"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+
+          <h1 class="mt-8 text-4xl md:text-5xl font-bold text-white leading-tight">
+            Message <span class="nnt-gradient-text">received.</span>
+          </h1>
+
+          <p class="mt-6 text-lg text-[color:var(--color-muted)] leading-relaxed">
+            Thanks for reaching out. Lupe personally reads every message — you'll hear back within one business day, usually sooner.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+            <Button href="/" variant="primary">Back to Home</Button>
+            <Button href="/services" variant="secondary">See Services</Button>
+          </div>
+
+          <p class="mt-10 text-sm text-[color:var(--color-muted)]">
+            In a hurry? Email <a href="mailto:lupe@novanexustexas.com" class="text-[color:var(--color-cyan)] hover:underline">lupe@novanexustexas.com</a> directly.
+          </p>
+        </div>
+      </Card>
+    </div>
+  </section>
+</BaseLayout>
