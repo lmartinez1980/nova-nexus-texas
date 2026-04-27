@@ -1,0 +1,375 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+const services = [
+  {
+    name: "Web Design & Development",
+    tagline: "Sites that look sharp, load fast, and sell.",
+    description: "Your website is your storefront. We build custom sites that work on every device, show up in search results, and turn visitors into customers.",
+    accent: "cyan",
+    features: [
+      "Mobile-first responsive design",
+      "AI-accelerated development",
+      "Built-in SEO optimization",
+      "Lightning-fast page speed",
+      "Easy content management",
+      "SSL security & hosting setup",
+    ],
+    tiers: [
+      {
+        name: "Starter",
+        price: "$600-$1,200",
+        bestFor: "Simple, effective presence",
+        features: [
+          "3-5 pages",
+          "Template-based design",
+          "Mobile responsive",
+          "Basic SEO",
+          "Contact form",
+          "Google Maps integration",
+        ],
+        delivery: "2-3 weeks",
+      },
+      {
+        name: "Business",
+        price: "$1,500-$3,000",
+        bestFor: "Professional & polished",
+        features: [
+          "5-10 pages",
+          "Custom design",
+          "Advanced SEO",
+          "Blog section",
+          "Photo galleries",
+          "Online booking options",
+        ],
+        delivery: "3-4 weeks",
+        featured: true,
+      },
+      {
+        name: "Pro",
+        price: "$3,500-$6,000",
+        bestFor: "Full-featured powerhouse",
+        features: [
+          "10+ pages",
+          "Fully custom build",
+          "E-commerce ready",
+          "Advanced integrations",
+          "Custom functionality",
+          "Training & documentation",
+        ],
+        delivery: "4-6 weeks",
+      },
+    ],
+  },
+  {
+    name: "Branding & Identity",
+    tagline: "A look that earns a second glance.",
+    description: "Your brand is more than a logo — it's the personality and promise. We design cohesive visual identities that make local businesses look professional and stand out.",
+    accent: "magenta",
+    features: [
+      "Logo design & variations",
+      "Color palette & typography",
+      "Brand style guide",
+      "Business collateral design",
+      "Social media templates",
+      "Brand voice guidelines",
+    ],
+    tiers: [
+      {
+        name: "Logo Only",
+        price: "$400-$800",
+        bestFor: "Just need the logo",
+        features: [
+          "3 logo concepts",
+          "3 rounds of revisions",
+          "All file formats",
+          "Color variations",
+          "Social media sizing",
+          "Usage guidelines",
+        ],
+        delivery: "1-2 weeks",
+      },
+      {
+        name: "Core Brand",
+        price: "$1,200-$2,500",
+        bestFor: "Complete visual identity",
+        features: [
+          "Logo package",
+          "Color palette",
+          "Typography system",
+          "Brand style guide",
+          "Business card design",
+          "Email signature",
+        ],
+        delivery: "2-3 weeks",
+        featured: true,
+      },
+      {
+        name: "Full Identity",
+        price: "$3,000-$5,000",
+        bestFor: "Everything you need",
+        features: [
+          "All Core Brand items",
+          "Brand voice guide",
+          "Tagline development",
+          "Social media templates",
+          "Photo style direction",
+          "Marketing deck template",
+        ],
+        delivery: "4-5 weeks",
+      },
+    ],
+  },
+  {
+    name: "Business Consulting",
+    tagline: "Strategy that moves the needle.",
+    description: "Sometimes you need direction, not more hustle. We bring 20 years of marketing and tech experience to help you figure out what's next — from marketing roadmaps to AI integration.",
+    accent: "violet",
+    features: [
+      "Marketing strategy & planning",
+      "Digital presence optimization",
+      "AI tools & automation guidance",
+      "Business process improvement",
+      "Tech stack recommendations",
+      "Growth & positioning strategy",
+    ],
+    tiers: [
+      {
+        name: "Single Session",
+        price: "$150/hour",
+        bestFor: "One-off advice",
+        features: [
+          "60-90 minute session",
+          "Targeted problem-solving",
+          "Actionable next steps",
+          "Follow-up notes",
+          "Resource recommendations",
+        ],
+        delivery: "Scheduled within 1 week",
+      },
+      {
+        name: "Strategy Sprint",
+        price: "$800-$1,500",
+        bestFor: "Focused deep-dive",
+        features: [
+          "3-5 working sessions",
+          "Audit & assessment",
+          "Written strategy document",
+          "90-day action roadmap",
+          "30-day check-in included",
+        ],
+        delivery: "2-3 weeks",
+        featured: true,
+      },
+      {
+        name: "Ongoing Advisory",
+        price: "$500-$1,200/mo",
+        bestFor: "Strategic partnership",
+        features: [
+          "Monthly strategy sessions",
+          "Unlimited email/text support",
+          "Quarterly planning reviews",
+          "Priority project access",
+          "Growth & accountability partner",
+        ],
+        delivery: "Month-to-month, cancel anytime",
+      },
+    ],
+  },
+];
+
+const bundles = [
+  {
+    name: "Launch Bundle",
+    discount: "Save 15%",
+    includes: [
+      "Website (Starter or Business)",
+      "Logo Only or Core Brand",
+      "Single Consulting Session",
+    ],
+    example: "Business Website + Core Brand + 1 Strategy Session = ~$2,900 (normally $3,400)",
+  },
+  {
+    name: "Complete Brand Bundle",
+    discount: "Save 20%",
+    includes: [
+      "Pro Website",
+      "Full Identity Brand Package",
+      "Strategy Sprint Consulting",
+    ],
+    example: "Pro Website + Full Identity + Strategy Sprint = ~$8,800 (normally $11,000)",
+  },
+];
+
+const whyItems = [
+  {
+    icon: "⚡",
+    title: "Faster Builds",
+    description: "AI-accelerated workflow means weeks, not months — without cutting corners.",
+  },
+  {
+    icon: "💰",
+    title: "Small-Business Pricing",
+    description: "Agency-quality work at prices that make sense for local businesses.",
+  },
+  {
+    icon: "🎯",
+    title: "20 Years Experience",
+    description: "Two decades building brands and shipping software. This is our best work yet.",
+  },
+  {
+    icon: "📞",
+    title: "Real Accountability",
+    description: "One founder. One phone number. You call, Lupe answers.",
+  },
+];
+---
+
+<BaseLayout
+  title="Services & Pricing — Web Design, Branding, Consulting · Nova Nexus Texas"
+  description="Transparent pricing for website development, branding, and consulting. Built for Arlington and DFW local businesses. Clear tiers, no surprises."
+>
+  <!-- HERO -->
+  <section class="relative pt-20 md:pt-28 pb-12 md:pb-16">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 text-center">
+      <SectionHeading level="h1" gradient="dual">
+        Services & Pricing
+      </SectionHeading>
+      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Website development, branding, and consulting — built for local businesses. Clear pricing. No surprises.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES WITH PRICING -->
+  {services.map((service, idx) => (
+    <section class={`relative py-16 md:py-24 ${idx % 2 === 1 ? 'bg-black/20' : ''}`}>
+      <div class="max-w-6xl mx-auto px-5 md:px-8">
+        <!-- Service Header -->
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">
+            {service.name}
+          </h2>
+          <p class="text-xl md:text-2xl text-[color:var(--color-{service.accent})] italic mb-4">
+            {service.tagline}
+          </p>
+          <p class="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-6">
+            {service.description}
+          </p>
+          
+          <!-- Features Grid -->
+          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto text-left text-sm md:text-base text-gray-300">
+            {service.features.map((feature) => (
+              <li class="flex items-start">
+                <span class="text-[color:var(--color-{service.accent})] mr-2">✓</span>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Pricing Tiers -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {service.tiers.map((tier) => (
+            <Card
+              className={`relative p-6 md:p-8 ${tier.featured ? 'ring-2 ring-[color:var(--color-' + service.accent + ')]' : ''}`}
+            >
+              {tier.featured && (
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[color:var(--color-{service.accent})] text-black text-xs font-bold px-3 py-1 rounded-full">
+                  POPULAR
+                </div>
+              )}
+              <h3 class="text-2xl font-bold text-white mb-2">{tier.name}</h3>
+              <div class="text-3xl font-bold text-[color:var(--color-{service.accent})] mb-2">
+                {tier.price}
+              </div>
+              <p class="text-sm text-gray-400 italic mb-4">{tier.bestFor}</p>
+              <ul class="space-y-2 mb-6 text-sm text-gray-300">
+                {tier.features.map((feature) => (
+                  <li class="flex items-start">
+                    <span class="text-[color:var(--color-{service.accent})] mr-2">•</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="pt-4 border-t border-white/10 text-sm text-[color:var(--color-{service.accent})] font-semibold">
+                ⏱ {tier.delivery}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- BUNDLES -->
+  <section class="relative py-16 md:py-24 bg-gradient-to-b from-[color:var(--color-royal)]/20 to-transparent">
+    <div class="max-w-5xl mx-auto px-5 md:px-8 text-center">
+      <SectionHeading level="h2" gradient="dual">
+        Save With Bundles
+      </SectionHeading>
+      <p class="text-lg md:text-xl text-gray-300 mb-12">
+        Combine services and save 15-20%. Get everything you need to launch strong.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {bundles.map((bundle) => (
+          <Card className="p-8 text-left">
+            <h3 class="text-2xl font-bold text-white mb-2">{bundle.name}</h3>
+            <span class="inline-block bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-full mb-4">
+              {bundle.discount}
+            </span>
+            <ul class="space-y-2 mb-6 text-gray-300">
+              {bundle.includes.map((item) => (
+                <li class="flex items-start">
+                  <span class="text-[color:var(--color-cyan)] mr-2 font-bold">+</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="bg-black/30 p-4 rounded text-sm text-gray-300">
+              <strong>Example:</strong> {bundle.example}
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY NOVA NEXUS -->
+  <section class="relative py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-5 md:px-8">
+      <SectionHeading level="h2" gradient="dual" className="text-center mb-12">
+        Why Nova Nexus
+      </SectionHeading>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {whyItems.map((item) => (
+          <div class="text-center">
+            <div class="text-5xl mb-3">{item.icon}</div>
+            <h3 class="text-xl font-bold text-white mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-300">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="relative py-16 md:py-24 bg-gradient-to-b from-transparent to-[color:var(--color-royal)]/10">
+    <div class="max-w-3xl mx-auto px-5 md:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+        Let's Build Something Worth Finding
+      </h2>
+      <p class="text-lg md:text-xl text-gray-300 mb-8">
+        Free 30-minute discovery call. No pressure, no commitment — just a real conversation about your business.
+      </p>
+      <Button href="/contact" variant="primary" size="lg">
+        Get Started
+      </Button>
+    </div>
+  </section>
+</BaseLayout>
