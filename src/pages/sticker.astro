@@ -1,0 +1,225 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+---
+<BaseLayout
+  title="Saw Our Sticker? Let's Build Your Site | Nova Nexus Texas"
+  description="You found us! Get 20% off your website build. Nova Nexus Texas builds AI-assisted websites for local DFW businesses in 7 days or less."
+>
+  <!-- HERO -->
+  <section class="relative pt-20 md:pt-28 pb-16 md:pb-20">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 text-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)] backdrop-blur-md mb-6">
+        <span class="h-1.5 w-1.5 rounded-full bg-[color:var(--color-cyan)] shadow-[0_0_12px_#00D9FF]"></span>
+        Sticker Exclusive Offer
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-bold text-white leading-[1.05] tracking-tight">
+        You found us! 🎉<br/>
+        <span class="nnt-gradient-text">Let's build your site.</span>
+      </h1>
+
+      <p class="mt-6 mx-auto max-w-2xl text-lg md:text-xl text-[color:var(--color-muted)] leading-relaxed">
+        Thanks for scanning our sticker. We're Nova Nexus Texas — we build AI-assisted websites for local DFW businesses in <strong class="text-white">7 days or less</strong>.
+      </p>
+
+      <div class="mt-10">
+        <Button href="#claim" variant="primary">
+          Claim Your 20% Off
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER CARD -->
+  <section class="relative py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-5 md:px-8">
+      <Card class="relative overflow-hidden !p-8 md:!p-12 text-center">
+        <div class="absolute inset-0 bg-gradient-to-br from-[color:var(--color-cyan)]/10 via-transparent to-[color:var(--color-magenta)]/10 pointer-events-none"></div>
+        <div class="relative">
+          <div class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[color:var(--color-cyan)] to-[color:var(--color-violet)] text-3xl">
+            🎟️
+          </div>
+          <h2 class="mt-6 text-3xl md:text-4xl font-bold text-white">Sticker Special: 20% Off</h2>
+          <p class="mt-4 text-lg text-[color:var(--color-muted)] max-w-xl mx-auto">
+            First 10 people who scan our sticker get <strong class="text-white">20% off any package</strong>. No catch. Just our way of saying thanks for noticing us.
+          </p>
+          <div class="mt-6 grid md:grid-cols-3 gap-4 text-left">
+            <div class="p-4 rounded-lg bg-white/5 border border-white/10">
+              <div class="text-2xl">⚡</div>
+              <div class="mt-2 text-sm font-semibold text-white">Fast Turnaround</div>
+              <div class="mt-1 text-xs text-[color:var(--color-muted)]">Most sites done in 7 days</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white/5 border border-white/10">
+              <div class="text-2xl">🤖</div>
+              <div class="mt-2 text-sm font-semibold text-white">AI-Assisted</div>
+              <div class="mt-1 text-xs text-[color:var(--color-muted)]">Faster builds, lower cost</div>
+            </div>
+            <div class="p-4 rounded-lg bg-white/5 border border-white/10">
+              <div class="text-2xl">🏠</div>
+              <div class="mt-2 text-sm font-semibold text-white">Local to DFW</div>
+              <div class="mt-1 text-xs text-[color:var(--color-muted)]">Arlington, Fort Worth, Dallas</div>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="relative py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-5 md:px-8">
+      <SectionHeading
+        eyebrow="What you get"
+        title="Real websites. Real results."
+        subtitle="No templates pretending to be strategy. Just clean, fast, mobile-friendly sites that bring in customers."
+      />
+      <div class="grid md:grid-cols-2 gap-6 mt-12">
+        <Card>
+          <div class="text-3xl mb-4">🎨</div>
+          <h3 class="text-xl font-semibold text-white">Custom Design</h3>
+          <p class="mt-3 text-[color:var(--color-muted)] leading-relaxed">Built for your brand. No cookie-cutter templates. Mobile-first, fast-loading, looks professional.</p>
+        </Card>
+        <Card>
+          <div class="text-3xl mb-4">📱</div>
+          <h3 class="text-xl font-semibold text-white">Mobile Optimized</h3>
+          <p class="mt-3 text-[color:var(--color-muted)] leading-relaxed">70% of people browse on their phone. Your site will look perfect on every screen size.</p>
+        </Card>
+        <Card>
+          <div class="text-3xl mb-4">🔍</div>
+          <h3 class="text-xl font-semibold text-white">SEO Ready</h3>
+          <p class="mt-3 text-[color:var(--color-muted)] leading-relaxed">Google-friendly from day one. Meta tags, sitemaps, schema markup — all handled.</p>
+        </Card>
+        <Card>
+          <div class="text-3xl mb-4">💬</div>
+          <h3 class="text-xl font-semibold text-white">Real Human Support</h3>
+          <p class="mt-3 text-[color:var(--color-muted)] leading-relaxed">Talk to Lupe directly. No chatbots, no outsourced support. Just a real person who cares.</p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLAIM FORM -->
+  <section id="claim" class="relative py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-5 md:px-8">
+      <SectionHeading
+        title="Claim Your 20% Off"
+        subtitle="Fill out the form below and we'll reach out within 24 hours to schedule your free discovery call."
+      />
+
+      <Card class="mt-12 !p-8 md:!p-10">
+        <form action="mailto:lupe@novanexustexas.com" method="POST" enctype="text/plain" class="space-y-6">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-sm font-medium text-white mb-2">Your Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-[color:var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-cyan)] focus:border-transparent"
+              placeholder="John Smith"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-white mb-2">Email *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-[color:var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-cyan)] focus:border-transparent"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="block text-sm font-medium text-white mb-2">Phone *</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-[color:var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-cyan)] focus:border-transparent"
+              placeholder="(555) 123-4567"
+            />
+          </div>
+
+          <!-- Business Name -->
+          <div>
+            <label for="business" class="block text-sm font-medium text-white mb-2">Business Name *</label>
+            <input
+              type="text"
+              id="business"
+              name="business"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-[color:var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-cyan)] focus:border-transparent"
+              placeholder="Your Business LLC"
+            />
+          </div>
+
+          <!-- Industry -->
+          <div>
+            <label for="industry" class="block text-sm font-medium text-white mb-2">Industry</label>
+            <input
+              type="text"
+              id="industry"
+              name="industry"
+              class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-[color:var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-cyan)] focus:border-transparent"
+              placeholder="e.g., Restaurant, Plumbing, Salon, Retail..."
+            />
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-sm font-medium text-white mb-2">Tell us what you need</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-[color:var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[color:var(--color-cyan)] focus:border-transparent resize-none"
+              placeholder="New site? Redesign? Just exploring options? Let us know..."
+            ></textarea>
+          </div>
+
+          <!-- Promo Code (hidden, auto-filled) -->
+          <input type="hidden" name="promo" value="STICKER20" />
+
+          <!-- Submit -->
+          <div class="pt-4">
+            <button
+              type="submit"
+              class="w-full px-6 py-4 rounded-lg bg-gradient-to-r from-[color:var(--color-cyan)] to-[color:var(--color-violet)] text-black font-semibold hover:shadow-[0_0_30px_rgba(0,217,255,0.5)] transition-all duration-300"
+            >
+              Claim My 20% Off
+            </button>
+          </div>
+
+          <p class="text-xs text-center text-[color:var(--color-muted)] mt-4">
+            By submitting this form, you agree to receive follow-up communication from Nova Nexus Texas. We respect your inbox — no spam, ever.
+          </p>
+        </form>
+      </Card>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="relative py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-5 md:px-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white">Built by locals, for locals.</h2>
+      <p class="mt-4 text-lg text-[color:var(--color-muted)]">
+        Based in Arlington, TX. We're your neighbors — not some faceless agency halfway across the country.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+        <Button href="/about" variant="secondary">Meet Lupe</Button>
+        <Button href="/services" variant="secondary">See What We Do</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
