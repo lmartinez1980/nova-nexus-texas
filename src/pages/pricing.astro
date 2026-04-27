@@ -4,62 +4,192 @@ import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 
-const tiers = [
+const services = [
   {
-    name: "Starter",
-    subtitle: "Essentials",
-    price: "$600",
-    priceNote: "from",
-    blurb: "Get a real website online. Fast. Clean. Clearly yours.",
-    features: [
-      "3-page website (Home · About · Contact)",
-      "Mobile-first responsive design",
-      "Basic on-page SEO setup",
-      "Contact form + email delivery",
-      "Google Business Profile basics",
-      "30-day post-launch support",
+    name: "Web Design & Development",
+    tagline: "Sites that look sharp, load fast, and sell.",
+    accent: "cyan",
+    tiers: [
+      {
+        name: "Starter",
+        price: "$600-$1,200",
+        bestFor: "Simple online presence",
+        features: [
+          "3-5 pages",
+          "Template-based with custom branding",
+          "Mobile responsive",
+          "Basic SEO setup",
+          "Contact form",
+          "Google Maps integration",
+          "2 rounds of revisions",
+        ],
+        delivery: "2-3 weeks",
+      },
+      {
+        name: "Business",
+        price: "$1,500-$3,000",
+        bestFor: "Professional services, lead generation",
+        features: [
+          "5-10 pages",
+          "Custom design tailored to brand",
+          "Advanced SEO optimization",
+          "Blog/news section",
+          "Photo galleries",
+          "Booking integration options",
+          "Google Business Profile optimization",
+          "3 rounds of revisions",
+        ],
+        delivery: "3-4 weeks",
+        featured: true,
+      },
+      {
+        name: "Pro",
+        price: "$3,500-$6,000",
+        bestFor: "E-commerce, complex functionality",
+        features: [
+          "10+ pages",
+          "Fully custom design & development",
+          "E-commerce capabilities",
+          "Advanced integrations (CRM, email, etc.)",
+          "Custom forms and functionality",
+          "Performance optimization",
+          "Security hardening",
+          "Training session included",
+          "4 rounds of revisions",
+        ],
+        delivery: "4-6 weeks",
+      },
     ],
-    cta: "Start with Essentials",
-    checkoutUrl: "https://buy.stripe.com/28E3cogh25kh0997JNd7q00",
-    featured: false,
   },
   {
-    name: "Community Focus",
-    subtitle: "Most popular",
-    price: "$1,200",
-    priceNote: null,
-    blurb: "The sweet spot for most local businesses. Everything to get found and booked.",
-    features: [
-      "Up to 6 pages, custom-designed",
-      "Full brand setup (logo, colors, type)",
-      "Local SEO + Google Business tune-up",
-      "Booking or scheduling integration",
-      "1 launch blog post (AI-drafted, human-polished)",
-      "Social media starter templates",
-      "60-day post-launch support",
+    name: "Branding & Identity",
+    tagline: "A look that earns a second glance.",
+    accent: "magenta",
+    tiers: [
+      {
+        name: "Logo Only",
+        price: "$400-$800",
+        bestFor: "Just need the logo",
+        features: [
+          "3 initial logo concepts",
+          "3 rounds of revisions",
+          "Final files (PNG, JPG, SVG, EPS)",
+          "Black/white/color versions",
+          "Social media sizes",
+          "Basic usage guidelines",
+        ],
+        delivery: "1-2 weeks",
+      },
+      {
+        name: "Core Brand",
+        price: "$1,200-$2,500",
+        bestFor: "Complete visual identity",
+        features: [
+          "Everything in Logo Only",
+          "Color palette (primary + secondary)",
+          "Typography system (2-3 fonts)",
+          "Brand style guide (10-15 pages)",
+          "Business card design",
+          "Letterhead template",
+          "Email signature template",
+        ],
+        delivery: "2-3 weeks",
+        featured: true,
+      },
+      {
+        name: "Full Identity",
+        price: "$3,000-$5,000",
+        bestFor: "Everything you need",
+        features: [
+          "Everything in Core Brand",
+          "Brand voice & messaging framework",
+          "Tagline development",
+          "Extended style guide (20-30 pages)",
+          "Social media templates (5-10 designs)",
+          "Brand pattern/texture library",
+          "Photography direction & mood boards",
+          "Brand story & positioning statement",
+          "Presentation template",
+        ],
+        delivery: "4-5 weeks",
+      },
     ],
-    cta: "Choose Community Focus",
-    checkoutUrl: "https://buy.stripe.com/dRm6oAaWIfYVf43ggjd7q01",
-    featured: true,
   },
   {
-    name: "Ambassador",
-    subtitle: "Full partnership",
-    price: "$2,500",
-    priceNote: null,
-    blurb: "We act like part of your team. Built for businesses ready to scale.",
-    features: [
-      "Unlimited pages (within reason)",
-      "Full branding system + style guide",
-      "AI-assisted content pipeline",
-      "Booking + CRM wire-up",
-      "Local community campaign (launch)",
-      "Monthly performance report",
-      "90-day post-launch support",
+    name: "Business Consulting",
+    tagline: "Strategy that moves the needle.",
+    accent: "violet",
+    tiers: [
+      {
+        name: "Hourly",
+        price: "$125-$175/hr",
+        bestFor: "Flexible as-needed help",
+        features: [
+          "Marketing strategy",
+          "Business planning",
+          "Technology recommendations",
+          "Operational efficiency review",
+          "Minimum 2-hour booking",
+        ],
+        delivery: "On-demand",
+      },
+      {
+        name: "Strategy Session",
+        price: "$300-$500",
+        bestFor: "Intensive deep dive",
+        features: [
+          "2-3 hour working session",
+          "Pre-session questionnaire & research",
+          "Focus area of your choice",
+          "Written summary & action plan",
+          "1 follow-up call (30 minutes) included",
+        ],
+        delivery: "Plan delivered in 3 days",
+        featured: true,
+      },
+      {
+        name: "Monthly Retainer",
+        price: "$800-$1,500/mo",
+        bestFor: "Ongoing partnership",
+        features: [
+          "4-6 hours of advisory time per month",
+          "Email & text support (24hr response)",
+          "Monthly strategic planning call",
+          "Quarterly deep-dive review",
+          "Priority scheduling",
+          "Discounted rates on project work",
+          "Month-to-month (no long-term contract)",
+        ],
+        delivery: "Ongoing",
+      },
     ],
-    cta: "Go Ambassador",
-    checkoutUrl: "https://buy.stripe.com/14AfZa3ug4gdcVV0hld7q02",
-    featured: false,
+  },
+];
+
+const bundles = [
+  {
+    name: "Website + Branding",
+    discount: "15%",
+    description: "Get a cohesive online presence — your new brand identity built directly into a custom website.",
+    includes: [
+      "Custom website (your tier)",
+      "Brand package (your tier)",
+      "Seamless integration",
+      "One unified timeline",
+    ],
+    example: "Business Site ($2,000) + Core Brand ($1,500) = $3,500 → $2,975",
+  },
+  {
+    name: "Complete Launch Package",
+    discount: "20%",
+    description: "Everything you need to launch or relaunch: brand, website, and strategic guidance.",
+    includes: [
+      "Website build",
+      "Brand identity",
+      "3-month consulting retainer",
+      "Launch strategy & support",
+    ],
+    example: "Business Site + Core Brand + 3-Month Retainer = $5,900 → $4,720",
   },
 ];
 
@@ -77,22 +207,33 @@ const faqs = [
     a: "Twenty years of real experience. One founder who picks up the phone. AI-assisted workflows that cut the cost without cutting the quality. And a deep-rooted belief that local businesses deserve the same firepower as the big guys.",
   },
   {
-    q: "What about ongoing costs like hosting or domains?",
-    a: "Hosting on modern static platforms like Vercel or Netlify is free or near-free for most small-business sites. You'll own your domain and all your accounts. We don't hold anything hostage — if you ever leave us, you take everything with you.",
+    q: "Can I mix and match tiers?",
+    a: "Absolutely. Want a Pro website with a Logo Only branding package? No problem. We'll build a custom quote that fits your needs.",
+  },
+  {
+    q: "Do you offer payment plans?",
+    a: "Yes! For projects over $2,000, we typically do 50% deposit upfront and 50% on delivery. Custom payment plans available on request.",
   },
   {
     q: "How fast can you launch?",
-    a: "Starter sites typically go live in 1–2 weeks. Community Focus is 3–4 weeks. Ambassador runs 4–6 weeks depending on scope. We move fast because AI handles the grunt work, not because we're cutting corners.",
+    a: "Website Starter sites: 2-3 weeks. Branding Logo Only: 1-2 weeks. Most projects deliver within 3-4 weeks. We move fast because AI handles the grunt work, not because we're cutting corners.",
   },
   {
     q: "Do you work with businesses outside of Arlington?",
     a: "Absolutely. We're Arlington-based but serve the whole DFW Metroplex and clients anywhere in Texas. A lot of the work happens remote-first — the magic is the discovery conversation and the ongoing communication, not a zip code.",
   },
 ];
+
+const accentColors: Record<string, string> = {
+  cyan: "var(--color-cyan)",
+  magenta: "var(--color-magenta)",
+  violet: "var(--color-violet)",
+  amber: "var(--color-amber)",
+};
 ---
 <BaseLayout
-  title="Pricing — Honest Flat-Fee Website & Marketing Packages · Nova Nexus Texas"
-  description="Three clear pricing tiers for Texas small businesses. From $600 Starter websites to $2,500 full Ambassador partnerships. No hidden fees, no surprises."
+  title="Pricing — Transparent Pricing for Web, Branding & Consulting · Nova Nexus Texas"
+  description="Clear pricing for all services. Web design $600-$6,000. Branding $400-$5,000. Consulting $125/hr-$1,500/mo. Bundle discounts available. No hidden fees."
 >
   <!-- HERO -->
   <section class="relative pt-20 md:pt-28 pb-12 md:pb-16">
@@ -100,74 +241,99 @@ const faqs = [
       <SectionHeading
         eyebrow="Pricing"
         title="Honest pricing. No smoke. No mirrors."
-        subtitle="Three tiers. Flat fees. Every deliverable written down before you sign anything."
+        subtitle="Three services. Clear tiers. Every deliverable written down before you sign anything."
       />
     </div>
   </section>
 
-  <!-- TIERS -->
-  <section class="relative py-12 md:py-16">
-    <div class="max-w-7xl mx-auto px-5 md:px-8">
-      <div class="grid md:grid-cols-3 gap-6 items-stretch">
-        {tiers.map((t) => (
-          <div class={`relative flex ${t.featured ? "md:-my-6" : ""}`}>
-            {t.featured && (
-              <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                <span class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-[0_8px_24px_-8px_rgba(232,59,170,0.6)]" style="background-image: linear-gradient(135deg, #25D6F7 0%, #7B2CF2 50%, #E83BAA 100%);">
-                  {t.subtitle}
-                </span>
-              </div>
-            )}
-            <Card class={`relative flex flex-col w-full ${t.featured ? "!p-10 ring-1 ring-[color:var(--color-violet)]/50 shadow-[0_20px_60px_-20px_rgba(123,44,242,0.5)]" : ""}`}>
-              {t.featured && (
-                <div class="absolute inset-0 pointer-events-none rounded-[inherit] bg-gradient-to-br from-[color:var(--color-cyan)]/8 via-transparent to-[color:var(--color-magenta)]/10"></div>
+  <!-- SERVICES WITH TIERS -->
+  {services.map((service, sIdx) => (
+    <section class={`relative py-16 md:py-20 ${sIdx % 2 === 1 ? 'bg-white/[0.02]' : ''}`}>
+      <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-white">{service.name}</h2>
+          <p class={`mt-2 text-lg`} style={`color: ${accentColors[service.accent]}`}>{service.tagline}</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 items-start">
+          {service.tiers.map((tier) => (
+            <div class={`relative flex ${tier.featured ? "md:-my-4" : ""}`}>
+              {tier.featured && (
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                  <span class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-[0_8px_24px_-8px_rgba(123,44,242,0.6)]" style="background-image: linear-gradient(135deg, #25D6F7 0%, #7B2CF2 50%, #E83BAA 100%);">
+                    Most Popular
+                  </span>
+                </div>
               )}
-              <div class="relative flex-1 flex flex-col">
-                <div>
-                  {!t.featured && (
-                    <p class="text-xs uppercase tracking-[0.2em] text-[color:var(--color-muted)]">{t.subtitle}</p>
-                  )}
-                  <h3 class={`mt-${t.featured ? "2" : "1"} text-2xl md:text-3xl font-bold text-white`}>{t.name}</h3>
-                  <div class="mt-5 flex items-baseline gap-2">
-                    {t.priceNote && <span class="text-sm text-[color:var(--color-muted)]">{t.priceNote}</span>}
-                    <span class={`text-5xl md:text-6xl font-bold ${t.featured ? "nnt-gradient-text" : "text-white"}`}>{t.price}</span>
+              <Card class={`relative flex flex-col w-full ${tier.featured ? "!p-8 ring-1 ring-white/10 shadow-[0_20px_60px_-20px_rgba(123,44,242,0.3)]" : ""}`}>
+                {tier.featured && (
+                  <div class="absolute inset-0 pointer-events-none rounded-[inherit] bg-gradient-to-br from-white/5 via-transparent to-white/5"></div>
+                )}
+                <div class="relative flex-1 flex flex-col">
+                  <div>
+                    <h3 class="text-2xl font-bold text-white">{tier.name}</h3>
+                    <p class={`mt-3 text-3xl font-bold`} style={`color: ${accentColors[service.accent]}`}>{tier.price}</p>
+                    <p class="mt-2 text-sm text-[color:var(--color-muted)] italic">{tier.bestFor}</p>
                   </div>
-                  <p class="mt-4 text-[color:var(--color-muted)] leading-relaxed">{t.blurb}</p>
-                </div>
 
-                <ul class="mt-7 space-y-3 flex-1">
-                  {t.features.map((f) => (
-                    <li class="flex items-start gap-3 text-sm">
-                      <span class="mt-[2px] inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-cyan)]/15 text-[color:var(--color-cyan)]">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="h-2.5 w-2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                      </span>
-                      <span class="text-[color:var(--color-text)]">{f}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <ul class="mt-6 space-y-2.5 flex-1">
+                    {tier.features.map((f) => (
+                      <li class="flex items-start gap-2.5 text-sm">
+                        <span class="mt-[2px] inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-white/5 text-[color:var(--color-cyan)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="h-2.5 w-2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <span class="text-[color:var(--color-text)]">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <div class="mt-8 space-y-3">
-                  <Button href={t.checkoutUrl} variant={t.featured ? "primary" : "secondary"} class="w-full">
-                    {t.cta}
-                  </Button>
-                  <a href="/contact" class="block text-center text-xs text-[color:var(--color-muted)] hover:text-white transition">
-                    or talk first → book discovery
-                  </a>
+                  <div class="mt-6">
+                    <p class={`text-sm font-semibold`} style={`color: ${accentColors[service.accent]}`}>⏱ {tier.delivery}</p>
+                  </div>
                 </div>
-              </div>
-            </Card>
-          </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- BUNDLES -->
+  <section class="relative py-20 md:py-28 bg-gradient-to-br from-[color:var(--color-royal)]/10 to-[color:var(--color-cyan)]/10">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <SectionHeading
+        eyebrow="Save with Bundles"
+        title="Combine services and save"
+        subtitle="Bundle any two or three services together for instant savings."
+      />
+
+      <div class="grid md:grid-cols-2 gap-8 mt-14 max-w-5xl mx-auto">
+        {bundles.map((bundle) => (
+          <Card>
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="text-2xl font-bold text-white">{bundle.name}</h3>
+              <span class="inline-block px-3 py-1 text-sm font-semibold bg-green-500/20 text-green-400 rounded-full">Save {bundle.discount}</span>
+            </div>
+            <p class="text-[color:var(--color-muted)] mb-6">{bundle.description}</p>
+            <ul class="space-y-2.5 mb-6">
+              {bundle.includes.map((item) => (
+                <li class="flex items-start gap-3 text-sm">
+                  <span class="text-[color:var(--color-cyan)]">+</span>
+                  <span class="text-[color:var(--color-text)]">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="bg-white/5 p-4 rounded-lg">
+              <p class="text-sm text-[color:var(--color-muted)] mb-1">Example:</p>
+              <p class="text-sm">{bundle.example.split(' → ')[0]} = <span class="line-through opacity-60">{bundle.example.match(/\$\d+,?\d+/g)?.[2]}</span> → <span class="text-[color:var(--color-cyan)] font-bold text-lg">{bundle.example.split(' → ')[1]}</span></p>
+            </div>
+          </Card>
         ))}
       </div>
 
-      <div class="mt-10 flex flex-col items-center gap-4">
-        <div class="inline-flex items-center gap-2 text-sm text-[color:var(--color-muted)]">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-[color:var(--color-cyan)]"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <span>Secure checkout powered by <strong class="text-white font-semibold">Stripe</strong></span>
-        </div>
-        <p class="text-center text-sm text-[color:var(--color-muted)] max-w-xl">
-          Prices in USD. One-time project fees. No retainers, no subscriptions, no surprise bills. Cards, Apple Pay, Google Pay, and ACH all accepted.
-        </p>
+      <div class="mt-12 text-center">
+        <Button href="/contact" variant="primary">Request Custom Bundle Quote</Button>
       </div>
     </div>
   </section>
