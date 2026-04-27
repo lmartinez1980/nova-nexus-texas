@@ -221,7 +221,7 @@ export const services: Service[] = [
     title: "Local SEO",
     tagline: "Get found by the people next door.",
     description:
-      "When somebody in Arlington, Fort Worth, or Dallas types "best near me," you show up. We handle Google Business, local schema, reviews, and the boring stuff that actually moves the needle.",
+      "When somebody in Arlington, Fort Worth, or Dallas types 'best near me,' you show up. We handle Google Business, local schema, reviews, and the boring stuff that actually moves the needle.",
     bullets: [
       "Google Business Profile tune-up",
       "Local schema & citations",
