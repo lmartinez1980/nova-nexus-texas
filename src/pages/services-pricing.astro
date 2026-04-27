@@ -253,7 +253,7 @@ const whyItems = [
           <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">
             {service.name}
           </h2>
-          <p class="text-xl md:text-2xl text-[color:var(--color-{service.accent})] italic mb-4">
+          <p class="text-xl md:text-2xl italic mb-4" style={`color: var(--color-${service.accent})`}>
             {service.tagline}
           </p>
           <p class="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-6">
@@ -264,7 +264,7 @@ const whyItems = [
           <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto text-left text-sm md:text-base text-gray-300">
             {service.features.map((feature) => (
               <li class="flex items-start">
-                <span class="text-[color:var(--color-{service.accent})] mr-2">✓</span>
+                <span class="mr-2" style={`color: var(--color-${service.accent})`}>✓</span>
                 <span>{feature}</span>
               </li>
             ))}
@@ -275,27 +275,28 @@ const whyItems = [
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {service.tiers.map((tier) => (
             <Card
-              className={`relative p-6 md:p-8 ${tier.featured ? 'ring-2 ring-[color:var(--color-' + service.accent + ')]' : ''}`}
+              className={`relative p-6 md:p-8 ${tier.featured ? 'ring-2' : ''}`}
+              style={tier.featured ? `border-color: var(--color-${service.accent})` : ''}
             >
               {tier.featured && (
-                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[color:var(--color-{service.accent})] text-black text-xs font-bold px-3 py-1 rounded-full">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 text-black text-xs font-bold px-3 py-1 rounded-full" style={`background-color: var(--color-${service.accent})`}>
                   POPULAR
                 </div>
               )}
               <h3 class="text-2xl font-bold text-white mb-2">{tier.name}</h3>
-              <div class="text-3xl font-bold text-[color:var(--color-{service.accent})] mb-2">
+              <div class="text-3xl font-bold mb-2" style={`color: var(--color-${service.accent})`}>
                 {tier.price}
               </div>
               <p class="text-sm text-gray-400 italic mb-4">{tier.bestFor}</p>
               <ul class="space-y-2 mb-6 text-sm text-gray-300">
                 {tier.features.map((feature) => (
                   <li class="flex items-start">
-                    <span class="text-[color:var(--color-{service.accent})] mr-2">•</span>
+                    <span class="mr-2" style={`color: var(--color-${service.accent})`}>•</span>
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <div class="pt-4 border-t border-white/10 text-sm text-[color:var(--color-{service.accent})] font-semibold">
+              <div class="pt-4 border-t border-white/10 text-sm font-semibold" style={`color: var(--color-${service.accent})`}>
                 ⏱ {tier.delivery}
               </div>
             </Card>
@@ -325,7 +326,7 @@ const whyItems = [
             <ul class="space-y-2 mb-6 text-gray-300">
               {bundle.includes.map((item) => (
                 <li class="flex items-start">
-                  <span class="text-[color:var(--color-cyan)] mr-2 font-bold">+</span>
+                  <span class="mr-2 font-bold" style="color: var(--color-cyan)">+</span>
                   <span>{item}</span>
                 </li>
               ))}
